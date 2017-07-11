@@ -1,0 +1,3378 @@
+{
+  "@type": "Repository",
+  "name": "Veliki set podataka",
+  "location":"lokacija",
+  "username":"ui-2016-tim201.9",
+  "password":"ui-2015-tim201.9.IoP994",
+  "server":"147.91.175.155",
+
+  "collection": [
+	{
+		  "@type":"Package",
+          "name": "MPS",
+		  "collection": [
+	{
+"@type":"Table",
+"name": "CLANSKA_KARTA",
+
+"attributes": [
+{
+"@type":"Field",
+"name": "CL_ID",
+"dataType":"int",
+"length":10,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "DR_OZNAKA",
+"dataType":"varchar",
+"length":4,
+"isPK":false,
+"isNotNULL":false
+},
+{
+"@type":"Field",
+"name": "SP_PIB",
+"dataType":"varchar",
+"length":20,
+"isPK":false,
+"isNotNULL":false
+},
+{
+"@type":"Field",
+"name": "CL_OD",
+"dataType":"datetime",
+"length":19,
+"isPK":false,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "CL_DO",
+"dataType":"datetime",
+"length":19,
+"isPK":false,
+"isNotNULL":false
+}
+],"relations":[
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"SPORTSKO_DRUSTVO",
+"parentIDs":["DR_OZNAKA","SP_PIB"],
+"child":"CLANSKA_KARTA",
+"childIDs":["DR_OZNAKA","SP_PIB"]
+}
+]
+
+},
+{
+"@type":"Table",
+"name": "DISCIPLINE",
+
+"attributes": [
+{
+"@type":"Field",
+"name": "SP_OZNAKA",
+"dataType":"varchar",
+"length":3,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "DS_TIP",
+"dataType":"varchar",
+"length":3,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "DS_NAZIV",
+"dataType":"varchar",
+"length":50,
+"isPK":false,
+"isNotNULL":true
+}
+],"relations":[
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"SPORT",
+"parentIDs":["SP_OZNAKA"],
+"child":"DISCIPLINE",
+"childIDs":["SP_OZNAKA"]
+}
+]
+
+},
+{
+"@type":"Table",
+"name": "DISCIPLINE2",
+
+"attributes": [
+{
+"@type":"Field",
+"name": "SP_OZNAKA",
+"dataType":"varchar",
+"length":3,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "DS_TIP",
+"dataType":"varchar",
+"length":3,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "DR_OZNAKA",
+"dataType":"varchar",
+"length":4,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "SP_PIB",
+"dataType":"varchar",
+"length":20,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "SK_ID",
+"dataType":"numeric",
+"length":3,
+"isPK":true,
+"isNotNULL":true
+}
+],"relations":[
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"DISCIPLINE",
+"parentIDs":["SP_OZNAKA","DS_TIP"],
+"child":"DISCIPLINE2",
+"childIDs":["SP_OZNAKA","DS_TIP"]
+},
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"SPORTSKI_KLUB",
+"parentIDs":["DR_OZNAKA","SP_PIB","SP_OZNAKA","SK_ID"],
+"child":"DISCIPLINE2",
+"childIDs":["DR_OZNAKA","SP_PIB","SP_OZNAKA","SK_ID"]
+}
+]
+
+},
+{
+"@type":"Table",
+"name": "DRZAVA",
+
+"attributes": [
+{
+"@type":"Field",
+"name": "DR_OZNAKA",
+"dataType":"varchar",
+"length":4,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "NAS_DR_OZNAKA",
+"dataType":"varchar",
+"length":4,
+"isPK":false,
+"isNotNULL":false
+},
+{
+"@type":"Field",
+"name": "NM_OZNAKA",
+"dataType":"int",
+"length":10,
+"isPK":false,
+"isNotNULL":false
+},
+{
+"@type":"Field",
+"name": "DU_OZNAKA",
+"dataType":"char",
+"length":1,
+"isPK":false,
+"isNotNULL":false
+},
+{
+"@type":"Field",
+"name": "DR_NAZIV",
+"dataType":"varchar",
+"length":80,
+"isPK":false,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "DR_GRB",
+"dataType":"ntext",
+"length":120,
+"isPK":false,
+"isNotNULL":false
+},
+{
+"@type":"Field",
+"name": "DR_ZASTAVA",
+"dataType":"ntext",
+"length":120,
+"isPK":false,
+"isNotNULL":false
+},
+{
+"@type":"Field",
+"name": "DR_HIMNA",
+"dataType":"ntext",
+"length":120,
+"isPK":false,
+"isNotNULL":false
+}
+],"relations":[
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"NASELJENA_MESTA",
+"parentIDs":["NAS_DR_OZNAKA","NM_OZNAKA"],
+"child":"DRZAVA",
+"childIDs":["NAS_DR_OZNAKA","NM_OZNAKA"]
+},
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"DRZAVNO_URE_ENJE",
+"parentIDs":["DU_OZNAKA"],
+"child":"DRZAVA",
+"childIDs":["DU_OZNAKA"]
+}
+]
+
+},
+{
+"@type":"Table",
+"name": "DRZAVNO_URE_ENJE",
+
+"attributes": [
+{
+"@type":"Field",
+"name": "DU_OZNAKA",
+"dataType":"char",
+"length":1,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "DU_NAZIV",
+"dataType":"varchar",
+"length":60,
+"isPK":false,
+"isNotNULL":true
+}
+]
+
+},
+{
+"@type":"Table",
+"name": "IMA",
+
+"attributes": [
+{
+"@type":"Field",
+"name": "SP_OZNAKA",
+"dataType":"varchar",
+"length":3,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "DR_OZNAKA",
+"dataType":"varchar",
+"length":4,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "SP_PIB",
+"dataType":"varchar",
+"length":20,
+"isPK":true,
+"isNotNULL":true
+}
+],"relations":[
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"SPORT",
+"parentIDs":["SP_OZNAKA"],
+"child":"IMA",
+"childIDs":["SP_OZNAKA"]
+},
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"SPORTSKO_DRUSTVO",
+"parentIDs":["DR_OZNAKA","SP_PIB"],
+"child":"IMA",
+"childIDs":["DR_OZNAKA","SP_PIB"]
+}
+]
+
+},
+{
+"@type":"Table",
+"name": "ISTORIJAT_URE_ENJA",
+
+"attributes": [
+{
+"@type":"Field",
+"name": "DR_OZNAKA",
+"dataType":"varchar",
+"length":4,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "URE_REDNI_BROJ",
+"dataType":"numeric",
+"length":2,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "DU_OZNAKA",
+"dataType":"char",
+"length":1,
+"isPK":false,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "URE_OD",
+"dataType":"datetime",
+"length":19,
+"isPK":false,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "URE_DO",
+"dataType":"datetime",
+"length":19,
+"isPK":false,
+"isNotNULL":false
+}
+],"relations":[
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"DRZAVA",
+"parentIDs":["DR_OZNAKA"],
+"child":"ISTORIJAT_URE_ENJA",
+"childIDs":["DR_OZNAKA"]
+},
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"DRZAVNO_URE_ENJE",
+"parentIDs":["DU_OZNAKA"],
+"child":"ISTORIJAT_URE_ENJA",
+"childIDs":["DU_OZNAKA"]
+}
+]
+
+},
+{
+"@type":"Table",
+"name": "KORISTI",
+
+"attributes": [
+{
+"@type":"Field",
+"name": "DR_OZNAKA",
+"dataType":"varchar",
+"length":4,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "SP_PIB",
+"dataType":"varchar",
+"length":20,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "SPO_DR_OZNAKA",
+"dataType":"varchar",
+"length":4,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "SPO_SP_PIB",
+"dataType":"varchar",
+"length":20,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "SO_ID",
+"dataType":"int",
+"length":10,
+"isPK":true,
+"isNotNULL":true
+}
+],"relations":[
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"SPORTSKO_DRUSTVO",
+"parentIDs":["DR_OZNAKA","SP_PIB"],
+"child":"KORISTI",
+"childIDs":["DR_OZNAKA","SP_PIB"]
+},
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"SPORTSKI_OBJEKTI",
+"parentIDs":["SPO_DR_OZNAKA","SPO_SP_PIB","SO_ID"],
+"child":"KORISTI",
+"childIDs":["SPO_DR_OZNAKA","SPO_SP_PIB","SO_ID"]
+}
+]
+
+},
+{
+"@type":"Table",
+"name": "LOKALNA_SAMOUPRAVA",
+
+"attributes": [
+{
+"@type":"Field",
+"name": "DR_OZNAKA",
+"dataType":"varchar",
+"length":4,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "OP_OZNAKA",
+"dataType":"numeric",
+"length":3,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "NAS_DR_OZNAKA",
+"dataType":"varchar",
+"length":4,
+"isPK":false,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "NM_OZNAKA",
+"dataType":"int",
+"length":10,
+"isPK":false,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "OP_NAZIV",
+"dataType":"varchar",
+"length":120,
+"isPK":false,
+"isNotNULL":true
+}
+],"relations":[
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"NASELJENA_MESTA",
+"parentIDs":["NAS_DR_OZNAKA","NM_OZNAKA"],
+"child":"LOKALNA_SAMOUPRAVA",
+"childIDs":["NAS_DR_OZNAKA","NM_OZNAKA"]
+},
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"DRZAVA",
+"parentIDs":["DR_OZNAKA"],
+"child":"LOKALNA_SAMOUPRAVA",
+"childIDs":["DR_OZNAKA"]
+}
+]
+
+},
+{
+"@type":"Table",
+"name": "MEC",
+
+"attributes": [
+{
+"@type":"Field",
+"name": "DR_OZNAKA",
+"dataType":"varchar",
+"length":4,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "SP_PIB",
+"dataType":"varchar",
+"length":20,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "SO_ID",
+"dataType":"int",
+"length":10,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "MEC_ID",
+"dataType":"int",
+"length":10,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "ST_ID",
+"dataType":"char",
+"length":10,
+"isPK":false,
+"isNotNULL":false
+},
+{
+"@type":"Field",
+"name": "ST_ADRESA2",
+"dataType":"int",
+"length":10,
+"isPK":false,
+"isNotNULL":false
+},
+{
+"@type":"Field",
+"name": "REZ_ID",
+"dataType":"int",
+"length":10,
+"isPK":false,
+"isNotNULL":false
+},
+{
+"@type":"Field",
+"name": "MEC_DATUM_I_VREME2",
+"dataType":"timestamp",
+"length":10,
+"isPK":false,
+"isNotNULL":true
+}
+],"relations":[
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"SPORTSKI_OBJEKTI",
+"parentIDs":["DR_OZNAKA","SP_PIB","SO_ID"],
+"child":"MEC",
+"childIDs":["DR_OZNAKA","SP_PIB","SO_ID"]
+},
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"SPORTSKA_LIGA",
+"parentIDs":["ST_ADRESA2"],
+"child":"MEC",
+"childIDs":["ST_ADRESA2"]
+},
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"SPORTSKO_TAKMICENJE",
+"parentIDs":["ST_ID"],
+"child":"MEC",
+"childIDs":["ST_ID"]
+},
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"REZULTAT",
+"parentIDs":["REZ_ID"],
+"child":"MEC",
+"childIDs":["REZ_ID"]
+}
+]
+
+},
+{
+"@type":"Table",
+"name": "MEDICINSKI_KARTON",
+
+"attributes": [
+{
+"@type":"Field",
+"name": "MK_ID",
+"dataType":"int",
+"length":10,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "MK_ISTORIJA_BOLESTI",
+"dataType":"varchar",
+"length":1000,
+"isPK":false,
+"isNotNULL":false
+},
+{
+"@type":"Field",
+"name": "MK_VISINA",
+"dataType":"numeric",
+"length":3,
+"isPK":false,
+"isNotNULL":false
+},
+{
+"@type":"Field",
+"name": "MK_TEZINA",
+"dataType":"numeric",
+"length":3,
+"isPK":false,
+"isNotNULL":false
+}
+]
+
+},
+{
+"@type":"Table",
+"name": "MESNA_ZAJEDNICA",
+
+"attributes": [
+{
+"@type":"Field",
+"name": "DR_OZNAKA",
+"dataType":"varchar",
+"length":4,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "OP_OZNAKA",
+"dataType":"numeric",
+"length":3,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "MZ_OZNAKA",
+"dataType":"char",
+"length":2,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "NAS_DR_OZNAKA",
+"dataType":"varchar",
+"length":4,
+"isPK":false,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "NM_OZNAKA",
+"dataType":"int",
+"length":10,
+"isPK":false,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "MZ_NAZIV",
+"dataType":"varchar",
+"length":80,
+"isPK":false,
+"isNotNULL":true
+}
+],"relations":[
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"NASELJENA_MESTA",
+"parentIDs":["NAS_DR_OZNAKA","NM_OZNAKA"],
+"child":"MESNA_ZAJEDNICA",
+"childIDs":["NAS_DR_OZNAKA","NM_OZNAKA"]
+},
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"LOKALNA_SAMOUPRAVA",
+"parentIDs":["DR_OZNAKA","OP_OZNAKA"],
+"child":"MESNA_ZAJEDNICA",
+"childIDs":["DR_OZNAKA","OP_OZNAKA"]
+}
+]
+
+},
+{
+"@type":"Table",
+"name": "NASELJA_U_REGIONU",
+
+"attributes": [
+{
+"@type":"Field",
+"name": "DR_OZNAKA",
+"dataType":"varchar",
+"length":4,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "NM_OZNAKA",
+"dataType":"int",
+"length":10,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "REG_TIP",
+"dataType":"char",
+"length":1,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "RE_OZNAKA",
+"dataType":"int",
+"length":10,
+"isPK":true,
+"isNotNULL":true
+}
+],"relations":[
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"NASELJENA_MESTA",
+"parentIDs":["DR_OZNAKA","NM_OZNAKA"],
+"child":"NASELJA_U_REGIONU",
+"childIDs":["DR_OZNAKA","NM_OZNAKA"]
+},
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"REGION",
+"parentIDs":["REG_TIP","RE_OZNAKA"],
+"child":"NASELJA_U_REGIONU",
+"childIDs":["REG_TIP","RE_OZNAKA"]
+}
+]
+
+},
+{
+"@type":"Table",
+"name": "NASELJENA_MESTA",
+
+"attributes": [
+{
+"@type":"Field",
+"name": "DR_OZNAKA",
+"dataType":"varchar",
+"length":4,
+"isPK":false,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "NM_OZNAKA",
+"dataType":"int",
+"length":10,
+"isPK":false,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "NM_NAZIV",
+"dataType":"varchar",
+"length":80,
+"isPK":false,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "NM_GRAD",
+"dataType":"smallint",
+"length":5,
+"isPK":true,
+"isNotNULL":true
+}
+],"relations":[
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"DRZAVA",
+"parentIDs":["DR_OZNAKA"],
+"child":"NASELJENA_MESTA",
+"childIDs":["DR_OZNAKA"]
+}
+]
+
+},
+{
+"@type":"Table",
+"name": "OPSTINE_U_REGIONU",
+
+"attributes": [
+{
+"@type":"Field",
+"name": "DR_OZNAKA",
+"dataType":"varchar",
+"length":4,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "OP_OZNAKA",
+"dataType":"numeric",
+"length":3,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "REG_TIP",
+"dataType":"char",
+"length":1,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "RE_OZNAKA",
+"dataType":"int",
+"length":10,
+"isPK":true,
+"isNotNULL":true
+}
+],"relations":[
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"LOKALNA_SAMOUPRAVA",
+"parentIDs":["DR_OZNAKA","OP_OZNAKA"],
+"child":"OPSTINE_U_REGIONU",
+"childIDs":["DR_OZNAKA","OP_OZNAKA"]
+},
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"REGION",
+"parentIDs":["REG_TIP","RE_OZNAKA"],
+"child":"OPSTINE_U_REGIONU",
+"childIDs":["REG_TIP","RE_OZNAKA"]
+}
+]
+
+},
+{
+"@type":"Table",
+"name": "OSOBA",
+
+"attributes": [
+{
+"@type":"Field",
+"name": "DR_OZNAKA",
+"dataType":"varchar",
+"length":4,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "TC_OZNAKA",
+"dataType":"varchar",
+"length":3,
+"isPK":false,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "SO_ID",
+"dataType":"int",
+"length":10,
+"isPK":false,
+"isNotNULL":false
+},
+{
+"@type":"Field",
+"name": "TR_ID",
+"dataType":"int",
+"length":10,
+"isPK":false,
+"isNotNULL":false
+},
+{
+"@type":"Field",
+"name": "SP_OZNAKA",
+"dataType":"varchar",
+"length":3,
+"isPK":false,
+"isNotNULL":false
+},
+{
+"@type":"Field",
+"name": "SK_ID",
+"dataType":"numeric",
+"length":3,
+"isPK":false,
+"isNotNULL":false
+},
+{
+"@type":"Field",
+"name": "TIM_OZNAKA4",
+"dataType":"varchar",
+"length":4,
+"isPK":false,
+"isNotNULL":false
+},
+{
+"@type":"Field",
+"name": "ID",
+"dataType":"int",
+"length":10,
+"isPK":false,
+"isNotNULL":false
+},
+{
+"@type":"Field",
+"name": "SP_PIB",
+"dataType":"varchar",
+"length":20,
+"isPK":false,
+"isNotNULL":false
+},
+{
+"@type":"Field",
+"name": "PK_TIP",
+"dataType":"char",
+"length":1,
+"isPK":false,
+"isNotNULL":false
+},
+{
+"@type":"Field",
+"name": "TIM_ID",
+"dataType":"int",
+"length":10,
+"isPK":false,
+"isNotNULL":false
+},
+{
+"@type":"Field",
+"name": "UZ_TIP",
+"dataType":"varchar",
+"length":3,
+"isPK":false,
+"isNotNULL":false
+},
+{
+"@type":"Field",
+"name": "ZP_RADNI_STAZ3",
+"dataType":"numeric",
+"length":2,
+"isPK":false,
+"isNotNULL":false
+},
+{
+"@type":"Field",
+"name": "CL_ID",
+"dataType":"int",
+"length":10,
+"isPK":false,
+"isNotNULL":false
+},
+{
+"@type":"Field",
+"name": "IBT_ID",
+"dataType":"varchar",
+"length":20,
+"isPK":false,
+"isNotNULL":false
+},
+{
+"@type":"Field",
+"name": "OS_IME",
+"dataType":"varchar",
+"length":30,
+"isPK":false,
+"isNotNULL":false
+},
+{
+"@type":"Field",
+"name": "OS_PREZIME",
+"dataType":"varchar",
+"length":30,
+"isPK":false,
+"isNotNULL":false
+},
+{
+"@type":"Field",
+"name": "OS_IME_RODITELJA",
+"dataType":"varchar",
+"length":30,
+"isPK":false,
+"isNotNULL":false
+},
+{
+"@type":"Field",
+"name": "OS_JMBG",
+"dataType":"varchar",
+"length":20,
+"isPK":false,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "OS_BROJ_LICOS_KARTE",
+"dataType":"varchar",
+"length":20,
+"isPK":false,
+"isNotNULL":false
+}
+],"relations":[
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"TIMOVI",
+"parentIDs":["DR_OZNAKA","SP_PIB","SP_OZNAKA","SK_ID","UZ_TIP","PK_TIP","TIM_ID"],
+"child":"OSOBA",
+"childIDs":["DR_OZNAKA","SP_PIB","SP_OZNAKA","SK_ID","UZ_TIP","PK_TIP","TIM_ID"]
+},
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"SPORTSKI_KLUB",
+"parentIDs":["DR_OZNAKA","SP_PIB","SP_OZNAKA","SK_ID"],
+"child":"OSOBA",
+"childIDs":["DR_OZNAKA","SP_PIB","SP_OZNAKA","SK_ID"]
+},
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"UZRAST",
+"parentIDs":["UZ_TIP"],
+"child":"OSOBA",
+"childIDs":["UZ_TIP"]
+},
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"TRENING",
+"parentIDs":["DR_OZNAKA","SP_PIB","SP_OZNAKA","SK_ID","SO_ID","TR_ID"],
+"child":"OSOBA",
+"childIDs":["DR_OZNAKA","SP_PIB","SP_OZNAKA","SK_ID","SO_ID","TR_ID"]
+},
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"RADNI_KARTON",
+"parentIDs":["ZP_RADNI_STAZ3"],
+"child":"OSOBA",
+"childIDs":["ZP_RADNI_STAZ3"]
+},
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"DRZAVA",
+"parentIDs":["DR_OZNAKA"],
+"child":"OSOBA",
+"childIDs":["DR_OZNAKA"]
+},
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"SPORTSKI_KARTON",
+"parentIDs":["IBT_ID"],
+"child":"OSOBA",
+"childIDs":["IBT_ID"]
+},
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"TIP_CLANSTVA",
+"parentIDs":["TC_OZNAKA"],
+"child":"OSOBA",
+"childIDs":["TC_OZNAKA"]
+},
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"TIMOVI",
+"parentIDs":["TIM_OZNAKA4","SP_PIB","SP_OZNAKA","SK_ID","UZ_TIP","PK_TIP","ID"],
+"child":"OSOBA",
+"childIDs":["TIM_OZNAKA4","SP_PIB","SP_OZNAKA","SK_ID","UZ_TIP","PK_TIP","ID"]
+},
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"CLANSKA_KARTA",
+"parentIDs":["CL_ID"],
+"child":"OSOBA",
+"childIDs":["CL_ID"]
+}
+]
+
+},
+{
+"@type":"Table",
+"name": "POLNA_KATEGORIJA",
+
+"attributes": [
+{
+"@type":"Field",
+"name": "PK_TIP",
+"dataType":"char",
+"length":1,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "PK_OPIS",
+"dataType":"varchar",
+"length":20,
+"isPK":false,
+"isNotNULL":true
+}
+]
+
+},
+{
+"@type":"Table",
+"name": "POZICIJA",
+
+"attributes": [
+{
+"@type":"Field",
+"name": "POZ_OZNAKA",
+"dataType":"varchar",
+"length":3,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "POZ_NAZIV",
+"dataType":"varchar",
+"length":120,
+"isPK":false,
+"isNotNULL":false
+}
+]
+
+},
+{
+"@type":"Table",
+"name": "PRIJAVA",
+
+"attributes": [
+{
+"@type":"Field",
+"name": "PR_ID",
+"dataType":"char",
+"length":10,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "ST_ADRESA2",
+"dataType":"int",
+"length":10,
+"isPK":false,
+"isNotNULL":false
+},
+{
+"@type":"Field",
+"name": "DR_OZNAKA",
+"dataType":"varchar",
+"length":4,
+"isPK":false,
+"isNotNULL":false
+},
+{
+"@type":"Field",
+"name": "SP_PIB",
+"dataType":"varchar",
+"length":20,
+"isPK":false,
+"isNotNULL":false
+},
+{
+"@type":"Field",
+"name": "SP_OZNAKA",
+"dataType":"varchar",
+"length":3,
+"isPK":false,
+"isNotNULL":false
+},
+{
+"@type":"Field",
+"name": "SK_ID",
+"dataType":"numeric",
+"length":3,
+"isPK":false,
+"isNotNULL":false
+},
+{
+"@type":"Field",
+"name": "UZ_TIP",
+"dataType":"varchar",
+"length":3,
+"isPK":false,
+"isNotNULL":false
+},
+{
+"@type":"Field",
+"name": "PK_TIP",
+"dataType":"char",
+"length":1,
+"isPK":false,
+"isNotNULL":false
+},
+{
+"@type":"Field",
+"name": "ID",
+"dataType":"int",
+"length":10,
+"isPK":true,
+"isNotNULL":false
+},
+{
+"@type":"Field",
+"name": "ST_ID",
+"dataType":"char",
+"length":10,
+"isPK":false,
+"isNotNULL":false
+},
+{
+"@type":"Field",
+"name": "OSO_DR_OZNAKA",
+"dataType":"varchar",
+"length":4,
+"isPK":false,
+"isNotNULL":false
+},
+{
+"@type":"Field",
+"name": "PR_DATUM",
+"dataType":"datetime",
+"length":19,
+"isPK":false,
+"isNotNULL":true
+}
+],"relations":[
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"OSOBA",
+"parentIDs":["OSO_DR_OZNAKA"],
+"child":"PRIJAVA",
+"childIDs":["OSO_DR_OZNAKA"]
+},
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"TIMOVI",
+"parentIDs":["DR_OZNAKA","SP_PIB","SP_OZNAKA","SK_ID","UZ_TIP","PK_TIP","ID"],
+"child":"PRIJAVA",
+"childIDs":["DR_OZNAKA","SP_PIB","SP_OZNAKA","SK_ID","UZ_TIP","PK_TIP","ID"]
+},
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"SPORTSKA_LIGA",
+"parentIDs":["ST_ADRESA2"],
+"child":"PRIJAVA",
+"childIDs":["ST_ADRESA2"]
+},
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"SPORTSKO_TAKMICENJE",
+"parentIDs":["ST_ID"],
+"child":"PRIJAVA",
+"childIDs":["ST_ID"]
+}
+]
+
+},
+{
+"@type":"Table",
+"name": "RADNI_KARTON",
+
+"attributes": [
+{
+"@type":"Field",
+"name": "ZP_RADNI_STAZ3",
+"dataType":"numeric",
+"length":2,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "ZP_STRUCNA_SPREMA3",
+"dataType":"varchar",
+"length":5,
+"isPK":false,
+"isNotNULL":false
+}
+]
+
+},
+{
+"@type":"Table",
+"name": "REGION",
+
+"attributes": [
+{
+"@type":"Field",
+"name": "REG_TIP",
+"dataType":"char",
+"length":1,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "RE_OZNAKA",
+"dataType":"int",
+"length":10,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "DR_OZNAKA",
+"dataType":"varchar",
+"length":4,
+"isPK":false,
+"isNotNULL":false
+},
+{
+"@type":"Field",
+"name": "NAS_DR_OZNAKA",
+"dataType":"varchar",
+"length":4,
+"isPK":false,
+"isNotNULL":false
+},
+{
+"@type":"Field",
+"name": "NM_OZNAKA",
+"dataType":"int",
+"length":10,
+"isPK":false,
+"isNotNULL":false
+},
+{
+"@type":"Field",
+"name": "RE_NAZIV",
+"dataType":"varchar",
+"length":80,
+"isPK":false,
+"isNotNULL":true
+}
+],"relations":[
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"DRZAVA",
+"parentIDs":["DR_OZNAKA"],
+"child":"REGION",
+"childIDs":["DR_OZNAKA"]
+},
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"NASELJENA_MESTA",
+"parentIDs":["NAS_DR_OZNAKA","NM_OZNAKA"],
+"child":"REGION",
+"childIDs":["NAS_DR_OZNAKA","NM_OZNAKA"]
+},
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"TIP_REGIONA",
+"parentIDs":["REG_TIP"],
+"child":"REGION",
+"childIDs":["REG_TIP"]
+}
+]
+
+},
+{
+"@type":"Table",
+"name": "REZULTAT",
+
+"attributes": [
+{
+"@type":"Field",
+"name": "REZ_ID",
+"dataType":"int",
+"length":10,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "REZ_REZULTAT",
+"dataType":"varchar",
+"length":120,
+"isPK":false,
+"isNotNULL":true
+}
+]
+
+},
+{
+"@type":"Table",
+"name": "SLOZENA_DRZAVA",
+
+"attributes": [
+{
+"@type":"Field",
+"name": "DR_OZNAKA",
+"dataType":"varchar",
+"length":4,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "DRZ_DR_OZNAKA",
+"dataType":"varchar",
+"length":4,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "SL_KOJI_PUT",
+"dataType":"numeric",
+"length":1,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "SL_OD",
+"dataType":"datetime",
+"length":19,
+"isPK":false,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "SL_DO",
+"dataType":"datetime",
+"length":19,
+"isPK":false,
+"isNotNULL":false
+}
+],"relations":[
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"DRZAVA",
+"parentIDs":["DRZ_DR_OZNAKA"],
+"child":"SLOZENA_DRZAVA",
+"childIDs":["DRZ_DR_OZNAKA"]
+},
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"DRZAVA",
+"parentIDs":["DR_OZNAKA"],
+"child":"SLOZENA_DRZAVA",
+"childIDs":["DR_OZNAKA"]
+}
+]
+
+},
+{
+"@type":"Table",
+"name": "SPORT",
+
+"attributes": [
+{
+"@type":"Field",
+"name": "SP_OZNAKA",
+"dataType":"varchar",
+"length":3,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "SP_NAZIV",
+"dataType":"varchar",
+"length":80,
+"isPK":false,
+"isNotNULL":true
+}
+]
+
+},
+{
+"@type":"Table",
+"name": "SPORTSKA_LIGA",
+
+"attributes": [
+{
+"@type":"Field",
+"name": "ST_ADRESA2",
+"dataType":"int",
+"length":10,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "DR_OZNAKA",
+"dataType":"varchar",
+"length":4,
+"isPK":false,
+"isNotNULL":false
+},
+{
+"@type":"Field",
+"name": "SP_PIB4",
+"dataType":"numeric",
+"length":9,
+"isPK":false,
+"isNotNULL":false
+},
+{
+"@type":"Field",
+"name": "ST_NAZIV",
+"dataType":"varchar",
+"length":80,
+"isPK":false,
+"isNotNULL":true
+}
+],"relations":[
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"SPORTSKI_SAVEZ",
+"parentIDs":["DR_OZNAKA","SP_PIB4"],
+"child":"SPORTSKA_LIGA",
+"childIDs":["DR_OZNAKA","SP_PIB4"]
+}
+]
+
+},
+{
+"@type":"Table",
+"name": "SPORTSKI_KARTON",
+
+"attributes": [
+{
+"@type":"Field",
+"name": "IBT_ID",
+"dataType":"varchar",
+"length":20,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "MK_ID",
+"dataType":"int",
+"length":10,
+"isPK":false,
+"isNotNULL":false
+}
+],"relations":[
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"MEDICINSKI_KARTON",
+"parentIDs":["MK_ID"],
+"child":"SPORTSKI_KARTON",
+"childIDs":["MK_ID"]
+}
+]
+
+},
+{
+"@type":"Table",
+"name": "SPORTSKI_KLUB",
+
+"attributes": [
+{
+"@type":"Field",
+"name": "DR_OZNAKA",
+"dataType":"varchar",
+"length":4,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "SP_PIB",
+"dataType":"varchar",
+"length":20,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "SP_OZNAKA",
+"dataType":"varchar",
+"length":3,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "SK_ID",
+"dataType":"numeric",
+"length":3,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "IBT_ID",
+"dataType":"varchar",
+"length":20,
+"isPK":false,
+"isNotNULL":false
+},
+{
+"@type":"Field",
+"name": "NM_OZNAKA",
+"dataType":"int",
+"length":10,
+"isPK":false,
+"isNotNULL":false
+},
+{
+"@type":"Field",
+"name": "SK_NAZIV",
+"dataType":"char",
+"length":80,
+"isPK":false,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "SK_ADRESA",
+"dataType":"varchar",
+"length":80,
+"isPK":false,
+"isNotNULL":true
+}
+],"relations":[
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"SPORTSKI_KARTON",
+"parentIDs":["IBT_ID"],
+"child":"SPORTSKI_KLUB",
+"childIDs":["IBT_ID"]
+},
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"SPORTSKO_DRUSTVO",
+"parentIDs":["DR_OZNAKA","SP_PIB"],
+"child":"SPORTSKI_KLUB",
+"childIDs":["DR_OZNAKA","SP_PIB"]
+},
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"NASELJENA_MESTA",
+"parentIDs":["DR_OZNAKA","NM_OZNAKA"],
+"child":"SPORTSKI_KLUB",
+"childIDs":["DR_OZNAKA","NM_OZNAKA"]
+},
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"SPORT",
+"parentIDs":["SP_OZNAKA"],
+"child":"SPORTSKI_KLUB",
+"childIDs":["SP_OZNAKA"]
+}
+]
+
+},
+{
+"@type":"Table",
+"name": "SPORTSKI_OBJEKTI",
+
+"attributes": [
+{
+"@type":"Field",
+"name": "DR_OZNAKA",
+"dataType":"varchar",
+"length":4,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "SP_PIB",
+"dataType":"varchar",
+"length":20,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "SO_ID",
+"dataType":"int",
+"length":10,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "NM_OZNAKA",
+"dataType":"int",
+"length":10,
+"isPK":false,
+"isNotNULL":false
+},
+{
+"@type":"Field",
+"name": "SO_ADRESA",
+"dataType":"varchar",
+"length":80,
+"isPK":false,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "SO_BROJ_MESTA",
+"dataType":"numeric",
+"length":9,
+"isPK":false,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "SO_OTVOREN",
+"dataType":"smallint",
+"length":5,
+"isPK":false,
+"isNotNULL":true
+}
+],"relations":[
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"NASELJENA_MESTA",
+"parentIDs":["DR_OZNAKA","NM_OZNAKA"],
+"child":"SPORTSKI_OBJEKTI",
+"childIDs":["DR_OZNAKA","NM_OZNAKA"]
+},
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"SPORTSKO_DRUSTVO",
+"parentIDs":["DR_OZNAKA","SP_PIB"],
+"child":"SPORTSKI_OBJEKTI",
+"childIDs":["DR_OZNAKA","SP_PIB"]
+}
+]
+
+},
+{
+"@type":"Table",
+"name": "SPORTSKI_SAVEZ",
+
+"attributes": [
+{
+"@type":"Field",
+"name": "DR_OZNAKA",
+"dataType":"varchar",
+"length":4,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "SP_PIB4",
+"dataType":"numeric",
+"length":9,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "NM_OZNAKA",
+"dataType":"int",
+"length":10,
+"isPK":false,
+"isNotNULL":false
+},
+{
+"@type":"Field",
+"name": "SP_NAZIV4",
+"dataType":"varchar",
+"length":80,
+"isPK":false,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "SP_ADRESA4",
+"dataType":"varchar",
+"length":80,
+"isPK":false,
+"isNotNULL":true
+}
+],"relations":[
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"DRZAVA",
+"parentIDs":["DR_OZNAKA"],
+"child":"SPORTSKI_SAVEZ",
+"childIDs":["DR_OZNAKA"]
+},
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"NASELJENA_MESTA",
+"parentIDs":["DR_OZNAKA","NM_OZNAKA"],
+"child":"SPORTSKI_SAVEZ",
+"childIDs":["DR_OZNAKA","NM_OZNAKA"]
+}
+]
+
+},
+{
+"@type":"Table",
+"name": "SPORTSKO_DRUSTVO",
+
+"attributes": [
+{
+"@type":"Field",
+"name": "DR_OZNAKA",
+"dataType":"varchar",
+"length":4,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "SP_PIB",
+"dataType":"varchar",
+"length":20,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "NM_OZNAKA",
+"dataType":"int",
+"length":10,
+"isPK":false,
+"isNotNULL":false
+},
+{
+"@type":"Field",
+"name": "SP_NAZIV",
+"dataType":"varchar",
+"length":80,
+"isPK":false,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "SP_ADRESA",
+"dataType":"varchar",
+"length":80,
+"isPK":false,
+"isNotNULL":true
+}
+],"relations":[
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"DRZAVA",
+"parentIDs":["DR_OZNAKA"],
+"child":"SPORTSKO_DRUSTVO",
+"childIDs":["DR_OZNAKA"]
+},
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"NASELJENA_MESTA",
+"parentIDs":["DR_OZNAKA","NM_OZNAKA"],
+"child":"SPORTSKO_DRUSTVO",
+"childIDs":["DR_OZNAKA","NM_OZNAKA"]
+}
+]
+
+},
+{
+"@type":"Table",
+"name": "SPORTSKO_TAKMICENJE",
+
+"attributes": [
+{
+"@type":"Field",
+"name": "ST_ID",
+"dataType":"char",
+"length":10,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "DR_OZNAKA",
+"dataType":"varchar",
+"length":4,
+"isPK":false,
+"isNotNULL":false
+},
+{
+"@type":"Field",
+"name": "SP_PIB4",
+"dataType":"numeric",
+"length":9,
+"isPK":false,
+"isNotNULL":false
+},
+{
+"@type":"Field",
+"name": "ST_NAZIV",
+"dataType":"varchar",
+"length":80,
+"isPK":false,
+"isNotNULL":true
+}
+],"relations":[
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"SPORTSKI_SAVEZ",
+"parentIDs":["DR_OZNAKA","SP_PIB4"],
+"child":"SPORTSKO_TAKMICENJE",
+"childIDs":["DR_OZNAKA","SP_PIB4"]
+}
+]
+
+},
+{
+"@type":"Table",
+"name": "TAKMICARI",
+
+"attributes": [
+{
+"@type":"Field",
+"name": "OSO_DR_OZNAKA",
+"dataType":"varchar",
+"length":4,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "DR_OZNAKA",
+"dataType":"varchar",
+"length":4,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "SP_PIB",
+"dataType":"varchar",
+"length":20,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "SO_ID",
+"dataType":"int",
+"length":10,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "MEC_ID",
+"dataType":"int",
+"length":10,
+"isPK":true,
+"isNotNULL":true
+}
+],"relations":[
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"OSOBA",
+"parentIDs":["OSO_DR_OZNAKA"],
+"child":"TAKMICARI",
+"childIDs":["OSO_DR_OZNAKA"]
+},
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"MEC",
+"parentIDs":["DR_OZNAKA","SP_PIB","SO_ID","MEC_ID"],
+"child":"TAKMICARI",
+"childIDs":["DR_OZNAKA","SP_PIB","SO_ID","MEC_ID"]
+}
+]
+
+},
+{
+"@type":"Table",
+"name": "TIMOVI",
+
+"attributes": [
+{
+"@type":"Field",
+"name": "DR_OZNAKA",
+"dataType":"varchar",
+"length":4,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "SP_PIB",
+"dataType":"varchar",
+"length":20,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "SP_OZNAKA",
+"dataType":"varchar",
+"length":3,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "SK_ID",
+"dataType":"numeric",
+"length":3,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "UZ_TIP",
+"dataType":"varchar",
+"length":3,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "PK_TIP",
+"dataType":"char",
+"length":1,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "ID",
+"dataType":"int",
+"length":10,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "NAZIV",
+"dataType":"varchar",
+"length":120,
+"isPK":false,
+"isNotNULL":true
+}
+],"relations":[
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"POLNA_KATEGORIJA",
+"parentIDs":["PK_TIP"],
+"child":"TIMOVI",
+"childIDs":["PK_TIP"]
+},
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"SPORTSKI_KLUB",
+"parentIDs":["DR_OZNAKA","SP_PIB","SP_OZNAKA","SK_ID"],
+"child":"TIMOVI",
+"childIDs":["DR_OZNAKA","SP_PIB","SP_OZNAKA","SK_ID"]
+},
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"UZRAST",
+"parentIDs":["UZ_TIP"],
+"child":"TIMOVI",
+"childIDs":["UZ_TIP"]
+}
+]
+
+},
+{
+"@type":"Table",
+"name": "TIP_CLANSTVA",
+
+"attributes": [
+{
+"@type":"Field",
+"name": "TC_OZNAKA",
+"dataType":"varchar",
+"length":3,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "TC_NAZIV",
+"dataType":"varchar",
+"length":120,
+"isPK":false,
+"isNotNULL":true
+}
+]
+
+},
+{
+"@type":"Table",
+"name": "TIP_REGIONA",
+
+"attributes": [
+{
+"@type":"Field",
+"name": "REG_TIP",
+"dataType":"char",
+"length":1,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "REG_NAZIV",
+"dataType":"varchar",
+"length":60,
+"isPK":false,
+"isNotNULL":true
+}
+]
+
+},
+{
+"@type":"Table",
+"name": "TIP_UGOVORA",
+
+"attributes": [
+{
+"@type":"Field",
+"name": "TU_OZNAKA",
+"dataType":"varchar",
+"length":3,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "TU_NAZIV",
+"dataType":"varchar",
+"length":120,
+"isPK":false,
+"isNotNULL":true
+}
+]
+
+},
+{
+"@type":"Table",
+"name": "TRENING",
+
+"attributes": [
+{
+"@type":"Field",
+"name": "DR_OZNAKA",
+"dataType":"varchar",
+"length":4,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "SP_PIB",
+"dataType":"varchar",
+"length":20,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "SP_OZNAKA",
+"dataType":"varchar",
+"length":3,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "SK_ID",
+"dataType":"numeric",
+"length":3,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "SO_ID",
+"dataType":"int",
+"length":10,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "TR_ID",
+"dataType":"int",
+"length":10,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "TR_VREME",
+"dataType":"timestamp",
+"length":10,
+"isPK":false,
+"isNotNULL":true
+}
+],"relations":[
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"SPORTSKI_OBJEKTI",
+"parentIDs":["DR_OZNAKA","SP_PIB","SO_ID"],
+"child":"TRENING",
+"childIDs":["DR_OZNAKA","SP_PIB","SO_ID"]
+},
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"SPORTSKI_KLUB",
+"parentIDs":["DR_OZNAKA","SP_PIB","SP_OZNAKA","SK_ID"],
+"child":"TRENING",
+"childIDs":["DR_OZNAKA","SP_PIB","SP_OZNAKA","SK_ID"]
+}
+]
+
+},
+{
+"@type":"Table",
+"name": "UCESNICI",
+
+"attributes": [
+{
+"@type":"Field",
+"name": "DR_OZNAKA",
+"dataType":"varchar",
+"length":4,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "SP_PIB",
+"dataType":"varchar",
+"length":20,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "SP_OZNAKA",
+"dataType":"varchar",
+"length":3,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "SK_ID",
+"dataType":"numeric",
+"length":3,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "UZ_TIP",
+"dataType":"varchar",
+"length":3,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "PK_TIP",
+"dataType":"char",
+"length":1,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "ID",
+"dataType":"int",
+"length":10,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "SO_ID",
+"dataType":"int",
+"length":10,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "MEC_ID",
+"dataType":"int",
+"length":10,
+"isPK":true,
+"isNotNULL":true
+}
+],"relations":[
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"TIMOVI",
+"parentIDs":["DR_OZNAKA","SP_PIB","SP_OZNAKA","SK_ID","UZ_TIP","PK_TIP","ID"],
+"child":"UCESNICI",
+"childIDs":["DR_OZNAKA","SP_PIB","SP_OZNAKA","SK_ID","UZ_TIP","PK_TIP","ID"]
+},
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"MEC",
+"parentIDs":["DR_OZNAKA","SP_PIB","SO_ID","MEC_ID"],
+"child":"UCESNICI",
+"childIDs":["DR_OZNAKA","SP_PIB","SO_ID","MEC_ID"]
+}
+]
+
+},
+{
+"@type":"Table",
+"name": "UGOVOR",
+
+"attributes": [
+{
+"@type":"Field",
+"name": "TU_OZNAKA",
+"dataType":"varchar",
+"length":3,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "POZ_OZNAKA",
+"dataType":"varchar",
+"length":3,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "DR_OZNAKA",
+"dataType":"varchar",
+"length":4,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "SP_PIB",
+"dataType":"varchar",
+"length":20,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "UG_ID",
+"dataType":"numeric",
+"length":6,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "UG_OD",
+"dataType":"datetime",
+"length":19,
+"isPK":false,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "UG_DO",
+"dataType":"datetime",
+"length":19,
+"isPK":false,
+"isNotNULL":false
+}
+],"relations":[
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"POZICIJA",
+"parentIDs":["POZ_OZNAKA"],
+"child":"UGOVOR",
+"childIDs":["POZ_OZNAKA"]
+},
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"SPORTSKO_DRUSTVO",
+"parentIDs":["DR_OZNAKA","SP_PIB"],
+"child":"UGOVOR",
+"childIDs":["DR_OZNAKA","SP_PIB"]
+},
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"TIP_UGOVORA",
+"parentIDs":["TU_OZNAKA"],
+"child":"UGOVOR",
+"childIDs":["TU_OZNAKA"]
+},
+{
+"@type":"Relation",
+"name":"raint",
+"parent":"OSOBA",
+"parentIDs":["DR_OZNAKA"],
+"child":"UGOVOR",
+"childIDs":["DR_OZNAKA"]
+}
+]
+
+},
+{
+"@type":"Table",
+"name": "UZRAST",
+
+"attributes": [
+{
+"@type":"Field",
+"name": "UZ_TIP",
+"dataType":"varchar",
+"length":3,
+"isPK":true,
+"isNotNULL":true
+},
+{
+"@type":"Field",
+"name": "UZ_NAZIV",
+"dataType":"varchar",
+"length":50,
+"isPK":false,
+"isNotNULL":true
+}
+]
+
+}
+
+			]
+
+	
+
+		  
+		  
+		  
+	},
+	
+	
+
+
+   {
+		
+		
+		
+          "@type":"Package",
+          "name": "Serijske datoteke",
+          "collection": [
+            {
+              "@type":"SerFile",
+              "name": "NastavniPredmeti",
+              "path": "C:\\Users\\vojin\\Desktop\\Veliki Set Podataka\\Veliki Set Podataka\\Serijske datoteke\\NastavniPredmeti.txt",
+              "attributes": [
+                {
+                  "@type":"Field",
+                  "name": "OZNAKA_PLANA",
+                  "dataType":"TYPE_CHAR",
+                  "length":2,
+                  "isPK":true
+                },
+                {
+                  "@type":"Field",
+                  "name": "SIFRA_PREDMETA",
+                  "dataType":"TYPE_VARCHAR",
+                  "length":5,
+                  "isPK":true
+                },
+                {
+                  "@type":"Field",
+                  "name": "NAZIV_PREDMETA",
+                  "dataType":"TYPE_VARCHAR",
+                  "length":80,
+                  "isPK":false
+                },
+                {
+                  "@type":"Field",
+                  "name": "TRAJE_SEMESTARA",
+                  "dataType":"TYPE_NUMERIC",
+                  "length":2,
+                  "isPK":false
+                },
+                {
+                  "@type":"Field",
+                  "name": "BROJ_KREDITA",
+                  "dataType":"TYPE_NUMERIC",
+                  "length":3,
+                  "isPK":false
+                }
+              ]
+            },
+            {
+              "@type":"SerFile",
+              "name": "PlanStudijskogPrograma",
+              "path": "C:\\Users\\vojin\\Desktop\\Veliki Set Podataka\\Veliki Set Podataka\\Serijske datoteke\\PlanStudijskogPrograma.txt",
+              "attributes": [
+                {
+                  "@type":"Field",
+                  "name": "OZNAKA_PROGRAMA",
+                  "dataType":"TYPE_CHAR",
+                  "length":4,
+                  "isPK":true
+                },
+                {
+                  "@type":"Field",
+                  "name": "OZNAKA_PLANA",
+                  "dataType":"TYPE_CHAR",
+                  "length":2,
+                  "isPK":true
+                },
+                {
+                  "@type":"Field",
+                  "name": "SIFRA_PREDMETA",
+                  "dataType":"TYPE_VARCHAR",
+                  "length":5,
+                  "isPK":true
+                },
+                {
+                  "@type":"Field",
+                  "name": "GODINA_PREDMETA",
+                  "dataType":"TYPE_NUMERIC",
+                  "length":1,
+                  "isPK":false
+                },
+                {
+                  "@type":"Field",
+                  "name": "SEMESTAR_PREDMETA",
+                  "dataType":"TYPE_NUMERIC",
+                  "length":2,
+                  "isPK":false
+                }
+              ]
+            },
+            {
+              "@type":"SerFile",
+              "name": "Studenti",
+              "path": "C:\\Users\\vojin\\Desktop\\Veliki Set Podataka\\Veliki Set Podataka\\Serijske datoteke\\Studenti.txt",
+              "attributes": [
+                {
+                  "@type":"Field",
+                  "name": "STRUKA",
+                  "dataType":"TYPE_CHAR",
+                  "length":1,
+                  "isPK":true
+                },
+                {
+                  "@type":"Field",
+                  "name": "BROJ INDEKSA",
+                  "dataType":"TYPE_VARCHAR",
+                  "length":6,
+                  "isPK":true
+                },
+                {
+                  "@type":"Field",
+                  "name": "PREZIME",
+                  "dataType":"TYPE_VARCHAR",
+                  "length":20,
+                  "isPK":false
+                },
+                {
+                  "@type":"Field",
+                  "name": "IME RODITELJA",
+                  "dataType":"TYPE_VARCHAR",
+                  "length":20,
+                  "isPK":false
+                },
+                {
+                  "@type":"Field",
+                  "name": "IME",
+                  "dataType":"TYPE_VARCHAR",
+                  "length":20,
+                  "isPK":false
+                },
+                {
+                  "@type":"Field",
+                  "name": "POL",
+                  "dataType":"TYPE_CHAR",
+                  "length":1,
+                  "isPK":false
+                },
+                {
+                  "@type":"Field",
+                  "name": "JMBG",
+                  "dataType":"TYPE_CHAR",
+                  "length":13,
+                  "isPK":false
+                },
+                {
+                  "@type":"Field",
+                  "name": "DATUM RODJENJA",
+                  "dataType":"TYPE_DATETIME",
+                  "length":25,
+                  "isPK":false
+                },
+                {
+                  "@type":"Field",
+                  "name": "ADRESA",
+                  "dataType":"TYPE_VARCHAR",
+                  "length":80,
+                  "isPK":false
+                },
+                {
+                  "@type":"Field",
+                  "name": "TELEFON",
+                  "dataType":"TYPE_VARCHAR",
+                  "length":20,
+                  "isPK":false
+                }
+              ]
+            },
+            {
+              "@type":"SerFile",
+              "name": "StudijskiProgrami",
+              "path": "C:\\Users\\vojin\\Desktop\\Veliki Set Podataka\\Veliki Set Podataka\\Serijske datoteke\\StudijskiProgrami.txt",
+              "attributes": [
+                {
+                  "@type":"Field",
+                  "name": "OZNAKA_PROGRAMA",
+                  "dataType":"TYPE_CHAR",
+                  "length":4,
+                  "isPK":true
+                },
+                {
+                  "@type":"Field",
+                  "name": "NAZIV_KOJI_SE_STICE",
+                  "dataType":"TYPE_VARCHAR",
+                  "length":80,
+                  "isPK":false
+                },
+                {
+                  "@type":"Field",
+                  "name": "NAZIV PROGRAMA",
+                  "dataType":"TYPE_VARCHAR",
+                  "length":80,
+                  "isPK":false
+                }
+              ]
+            },
+            {
+              "@type":"SerFile",
+              "name": "TokStudija",
+              "path": "C:\\Users\\vojin\\Desktop\\Veliki Set Podataka\\Veliki Set Podataka\\Serijske datoteke\\TokStudija.txt",
+              "attributes": [
+                {
+                  "@type":"Field",
+                  "name": "STRUKA",
+                  "dataType":"TYPE_CHAR",
+                  "length":1,
+                  "isPK":true
+                },
+                {
+                  "@type":"Field",
+                  "name": "BROJ INDEKSA",
+                  "dataType":"TYPE_VARCHAR",
+                  "length":6,
+                  "isPK":true
+                },
+                {
+                  "@type":"Field",
+                  "name": "OZNAKA_PROGRAMA",
+                  "dataType":"TYPE_CHAR",
+                  "length":4,
+                  "isPK":true
+                },
+                {
+                  "@type":"Field",
+                  "name": "SKOLSKA_GODINA",
+                  "dataType":"TYPE_CHAR",
+                  "length":4,
+                  "isPK":true
+                },
+                {
+                  "@type":"Field",
+                  "name": "GODINA_STUDIJA",
+                  "dataType":"TYPE_NUMERIC",
+                  "length":1,
+                  "isPK":false
+                },
+                {
+                  "@type":"Field",
+                  "name": "UPISUJE_PO_PLANU",
+                  "dataType":"TYPE_CHAR",
+                  "length":2,
+                  "isPK":false
+                }
+              ]
+            }
+          ]
+    },
+    {
+      "@type":"Package",
+      "name": "Sekvencijalne datoteke",
+      "collection": [
+            {
+              "@type":"SekFile",
+              "name": "NastavniPredmeti",
+              "path": "C:\\Users\\vojin\\Desktop\\Veliki Set Podataka\\Veliki Set Podataka\\Sekvencijalne datoteke\\NastavniPredmeti.stxt",
+              "attributes": [
+                {
+                  "@type":"Field",
+                  "name": "OZNAKA_PLANA",
+                  "dataType":"TYPE_CHAR",
+                  "length":2,
+                  "isPK":true
+                },
+                {
+                  "@type":"Field",
+                  "name": "SIFRA_PREDMETA",
+                  "dataType":"TYPE_VARCHAR",
+                  "length":5,
+                  "isPK":true
+                },
+                {
+                  "@type":"Field",
+                  "name": "NAZIV_PREDMETA",
+                  "dataType":"TYPE_VARCHAR",
+                  "length":80,
+                  "isPK":false
+                },
+                {
+                  "@type":"Field",
+                  "name": "TRAJE_SEMESTARA",
+                  "dataType":"TYPE_NUMERIC",
+                  "length":2,
+                  "isPK":false
+                },
+                {
+                  "@type":"Field",
+                  "name": "BROJ_KREDITA",
+                  "dataType":"TYPE_NUMERIC",
+                  "length":3,
+                  "isPK":false
+                }
+              ]
+            },
+            {
+              "@type":"SekFile",
+              "name": "PlanStudijskogPrograma",
+              "path": "C:\\Users\\vojin\\Desktop\\Veliki Set Podataka\\Veliki Set Podataka\\Sekvencijalne datoteke\\PlanStudijskogPrograma.stxt",
+              "attributes": [
+                {
+                  "@type":"Field",
+                  "name": "OZNAKA_PROGRAMA",
+                  "dataType":"TYPE_CHAR",
+                  "length":4,
+                  "isPK":true
+                },
+                {
+                  "@type":"Field",
+                  "name": "OZNAKA_PLANA",
+                  "dataType":"TYPE_CHAR",
+                  "length":2,
+                  "isPK":true
+                },
+                {
+                  "@type":"Field",
+                  "name": "SIFRA_PREDMETA",
+                  "dataType":"TYPE_VARCHAR",
+                  "length":5,
+                  "isPK":true
+                },
+                {
+                  "@type":"Field",
+                  "name": "GODINA_PREDMETA",
+                  "dataType":"TYPE_NUMERIC",
+                  "length":1,
+                  "isPK":false
+                },
+                {
+                  "@type":"Field",
+                  "name": "SEMESTAR_PREDMETA",
+                  "dataType":"TYPE_NUMERIC",
+                  "length":2,
+                  "isPK":false
+                }
+              ],
+              "relations":[
+                {
+                  "@type":"Relation",
+                  "name":"PlanStudijskogPrograma (child) -> StudijskiProgrami (parent)",
+                  "parent":"StudijskiProgrami",
+                  "parentIDs":["OZNAKA_PROGRAMA"],
+                  "child":"PlanStudijskogPrograma",
+                  "childIDs":["OZNAKA_PROGRAMA"]
+                },
+                {
+                  "@type":"Relation",
+                  "name":"PlanStudijskogPrograma (child) -> NastavniPredmeti (parent)",
+                  "parent":"NastavniPredmeti",
+                  "parentIDs":["OZNAKA_PLANA","SIFRA_PREDMETA"],
+                  "child":"PlanStudijskogPrograma",
+                  "childIDs":["OZNAKA_PLANA","SIFRA_PREDMETA"]
+                }
+              ]
+            },
+            {
+              "@type":"SekFile",
+              "name": "Studenti",
+              "path": "C:\\Users\\vojin\\Desktop\\Veliki Set Podataka\\Veliki Set Podataka\\Sekvencijalne datoteke\\Studenti.stxt",
+              "attributes": [
+                {
+                  "@type":"Field",
+                  "name": "STRUKA",
+                  "dataType":"TYPE_CHAR",
+                  "length":1,
+                  "isPK":true
+                },
+                {
+                  "@type":"Field",
+                  "name": "BROJ INDEKSA",
+                  "dataType":"TYPE_VARCHAR",
+                  "length":6,
+                  "isPK":true
+                },
+                {
+                  "@type":"Field",
+                  "name": "PREZIME",
+                  "dataType":"TYPE_VARCHAR",
+                  "length":20,
+                  "isPK":false
+                },
+                {
+                  "@type":"Field",
+                  "name": "IME RODITELJA",
+                  "dataType":"TYPE_VARCHAR",
+                  "length":20,
+                  "isPK":false
+                },
+                {
+                  "@type":"Field",
+                  "name": "IME",
+                  "dataType":"TYPE_VARCHAR",
+                  "length":20,
+                  "isPK":false
+                },
+                {
+                  "@type":"Field",
+                  "name": "POL",
+                  "dataType":"TYPE_CHAR",
+                  "length":1,
+                  "isPK":false
+                },
+                {
+                  "@type":"Field",
+                  "name": "JMBG",
+                  "dataType":"TYPE_CHAR",
+                  "length":13,
+                  "isPK":false
+                },
+                {
+                  "@type":"Field",
+                  "name": "DATUM RODJENJA",
+                  "dataType":"TYPE_DATETIME",
+                  "length":25,
+                  "isPK":false
+                },
+                {
+                  "@type":"Field",
+                  "name": "ADRESA",
+                  "dataType":"TYPE_VARCHAR",
+                  "length":80,
+                  "isPK":false
+                },
+                {
+                  "@type":"Field",
+                  "name": "TELEFON",
+                  "dataType":"TYPE_VARCHAR",
+                  "length":20,
+                  "isPK":false
+                }
+              ]
+            },
+            {
+              "@type":"SekFile",
+              "name": "StudijskiProgrami",
+              "path": "C:\\Users\\vojin\\Desktop\\Veliki Set Podataka\\Veliki Set Podataka\\Sekvencijalne datoteke\\StudijskiProgrami.stxt",
+              "attributes": [
+                {
+                  "@type":"Field",
+                  "name": "OZNAKA_PROGRAMA",
+                  "dataType":"TYPE_CHAR",
+                  "length":4,
+                  "isPK":true
+                },
+                {
+                  "@type":"Field",
+                  "name": "NAZIV_KOJI_SE_STICE",
+                  "dataType":"TYPE_VARCHAR",
+                  "length":80,
+                  "isPK":false
+                },
+                {
+                  "@type":"Field",
+                  "name": "NAZIV PROGRAMA",
+                  "dataType":"TYPE_VARCHAR",
+                  "length":80,
+                  "isPK":false
+                }
+              ]
+            },
+            {
+              "@type":"SekFile",
+              "name": "TokStudija",
+              "path": "C:\\Users\\vojin\\Desktop\\Veliki Set Podataka\\Veliki Set Podataka\\Sekvencijalne datoteke\\TokStudija.stxt",
+              "attributes": [
+                {
+                  "@type":"Field",
+                  "name": "STRUKA",
+                  "dataType":"TYPE_CHAR",
+                  "length":1,
+                  "isPK":true
+                },
+                {
+                  "@type":"Field",
+                  "name": "BROJ INDEKSA",
+                  "dataType":"TYPE_VARCHAR",
+                  "length":6,
+                  "isPK":true
+                },
+                {
+                  "@type":"Field",
+                  "name": "OZNAKA_PROGRAMA",
+                  "dataType":"TYPE_CHAR",
+                  "length":4,
+                  "isPK":true
+                },
+                {
+                  "@type":"Field",
+                  "name": "SKOLSKA_GODINA",
+                  "dataType":"TYPE_CHAR",
+                  "length":4,
+                  "isPK":true
+                },
+                {
+                  "@type":"Field",
+                  "name": "GODINA_STUDIJA",
+                  "dataType":"TYPE_NUMERIC",
+                  "length":1,
+                  "isPK":false
+                },
+                {
+                  "@type":"Field",
+                  "name": "UPISUJE_PO_PLANU",
+                  "dataType":"TYPE_CHAR",
+                  "length":2,
+                  "isPK":false
+                }
+              ],
+              "relations":[
+                {
+                  "@type":"Relation",
+                  "name":"TokStudija (child) -> Studenti (parent)",
+                  "parent":"Studenti",
+                  "parentIDs":["STRUKA", "BROJ INDEKSA"],
+                  "child":"TokStudija",
+                  "childIDs":["STRUKA", "BROJ INDEKSA"]
+                },
+                {
+                  "@type":"Relation",
+                  "name":"TokStudija (child) -> StudijskiProgrami (parent)",
+                  "parent":"StudijskiProgrami",
+                  "parentIDs":["OZNAKA_PROGRAMA"],
+                  "child":"TokStudija",
+                  "childIDs":["OZNAKA_PROGRAMA"]
+                }
+              ]
+            }
+          ]
+    },
+    {
+          "@type":"Package",
+          "name": "Indeks - sekvencijalne datoteke",
+          "collection": [
+            {
+              "@type":"ISekFile",
+              "name": "NastavniPredmeti",
+              "path": "C:\\Users\\vojin\\Desktop\\Veliki Set Podataka\\Veliki Set Podataka\\Indeks - sekvencijalne datoteke\\NastavniPredmeti.stxt",
+              "tree": "C:\\Users\\vojin\\Desktop\\Veliki Set Podataka\\Veliki Set Podataka\\Indeks - sekvencijalne datoteke\\NastavniPredmeti.tree",
+              "overZone":"C:\\Users\\vojin\\Desktop\\Veliki Set Podataka\\Veliki Set Podataka\\Indeks - sekvencijalne datoteke\\NastavniPredmeti.over",
+              "attributes": [
+                {
+                  "@type":"Field",
+                  "name": "OZNAKA_PLANA",
+                  "dataType":"TYPE_CHAR",
+                  "length":2,
+                  "isPK":true
+                },
+                {
+                  "@type":"Field",
+                  "name": "SIFRA_PREDMETA",
+                  "dataType":"TYPE_VARCHAR",
+                  "length":5,
+                  "isPK":true
+                },
+                {
+                  "@type":"Field",
+                  "name": "NAZIV_PREDMETA",
+                  "dataType":"TYPE_VARCHAR",
+                  "length":80,
+                  "isPK":false
+                },
+                {
+                  "@type":"Field",
+                  "name": "TRAJE_SEMESTARA",
+                  "dataType":"TYPE_NUMERIC",
+                  "length":2,
+                  "isPK":false
+                },
+                {
+                  "@type":"Field",
+                  "name": "BROJ_KREDITA",
+                  "dataType":"TYPE_NUMERIC",
+                  "length":3,
+                  "isPK":false
+                }
+              ]
+            },
+            {
+              "@type":"ISekFile",
+              "name": "PlanStudijskogPrograma",
+              "path": "C:\\Users\\vojin\\Desktop\\Veliki Set Podataka\\Veliki Set Podataka\\Indeks - sekvencijalne datoteke\\PlanStudijskogPrograma.stxt",
+              "tree": "C:\\Users\\vojin\\Desktop\\Veliki Set Podataka\\Veliki Set Podataka\\Indeks - sekvencijalne datoteke\\PlanStudijskogPrograma.tree",
+              "overZone":"C:\\Users\\vojin\\Desktop\\Veliki Set Podataka\\Veliki Set Podataka\\Indeks - sekvencijalne datoteke\\PlanStudijskogPrograma.over",
+              "attributes": [
+                {
+                  "@type":"Field",
+                  "name": "OZNAKA_PROGRAMA",
+                  "dataType":"TYPE_CHAR",
+                  "length":4,
+                  "isPK":true
+                },
+                {
+                  "@type":"Field",
+                  "name": "OZNAKA_PLANA",
+                  "dataType":"TYPE_CHAR",
+                  "length":2,
+                  "isPK":true
+                },
+                {
+                  "@type":"Field",
+                  "name": "SIFRA_PREDMETA",
+                  "dataType":"TYPE_VARCHAR",
+                  "length":5,
+                  "isPK":true
+                },
+                {
+                  "@type":"Field",
+                  "name": "GODINA_PREDMETA",
+                  "dataType":"TYPE_NUMERIC",
+                  "length":1,
+                  "isPK":false
+                },
+                {
+                  "@type":"Field",
+                  "name": "SEMESTAR_PREDMETA",
+                  "dataType":"TYPE_NUMERIC",
+                  "length":2,
+                  "isPK":false
+                }
+              ],
+              "relations":[
+                {
+                  "@type":"Relation",
+                  "name":"PlanStudijskogPrograma (child) -> StudijskiProgrami (parent)",
+                  "parent":"StudijskiProgrami",
+                  "parentIDs":["OZNAKA_PROGRAMA"],
+                  "child":"PlanStudijskogPrograma",
+                  "childIDs":["OZNAKA_PROGRAMA"]
+                },
+                {
+                  "@type":"Relation",
+                  "name":"PlanStudijskogPrograma (child) -> NastavniPredmeti (parent)",
+                  "parent":"NastavniPredmeti",
+                  "parentIDs":["OZNAKA_PLANA","SIFRA_PREDMETA"],
+                  "child":"PlanStudijskogPrograma",
+                  "childIDs":["OZNAKA_PLANA","SIFRA_PREDMETA"]
+                }
+              ]
+            },
+            {
+              "@type":"ISekFile",
+              "name": "Studenti",
+              "path": "C:\\Users\\vojin\\Desktop\\Veliki Set Podataka\\Veliki Set Podataka\\Indeks - sekvencijalne datoteke\\Studenti.stxt",
+              "tree": "C:\\Users\\vojin\\Desktop\\Veliki Set Podataka\\Veliki Set Podataka\\Indeks - sekvencijalne datoteke\\Studenti.tree",
+              "overZone":"C:\\Users\\vojin\\Desktop\\Veliki Set Podataka\\Veliki Set Podataka\\Indeks - sekvencijalne datoteke\\Studenti.over",
+              "attributes": [
+                {
+                  "@type":"Field",
+                  "name": "STRUKA",
+                  "dataType":"TYPE_CHAR",
+                  "length":1,
+                  "isPK":true
+                },
+                {
+                  "@type":"Field",
+                  "name": "BROJ INDEKSA",
+                  "dataType":"TYPE_VARCHAR",
+                  "length":6,
+                  "isPK":true
+                },
+                {
+                  "@type":"Field",
+                  "name": "PREZIME",
+                  "dataType":"TYPE_VARCHAR",
+                  "length":20,
+                  "isPK":false
+                },
+                {
+                  "@type":"Field",
+                  "name": "IME RODITELJA",
+                  "dataType":"TYPE_VARCHAR",
+                  "length":20,
+                  "isPK":false
+                },
+                {
+                  "@type":"Field",
+                  "name": "IME",
+                  "dataType":"TYPE_VARCHAR",
+                  "length":20,
+                  "isPK":false
+                },
+                {
+                  "@type":"Field",
+                  "name": "POL",
+                  "dataType":"TYPE_CHAR",
+                  "length":1,
+                  "isPK":false
+                },
+                {
+                  "@type":"Field",
+                  "name": "JMBG",
+                  "dataType":"TYPE_CHAR",
+                  "length":13,
+                  "isPK":false
+                },
+                {
+                  "@type":"Field",
+                  "name": "DATUM RODJENJA",
+                  "dataType":"TYPE_DATETIME",
+                  "length":25,
+                  "isPK":false
+                },
+                {
+                  "@type":"Field",
+                  "name": "ADRESA",
+                  "dataType":"TYPE_VARCHAR",
+                  "length":80,
+                  "isPK":false
+                },
+                {
+                  "@type":"Field",
+                  "name": "TELEFON",
+                  "dataType":"TYPE_VARCHAR",
+                  "length":20,
+                  "isPK":false
+                }
+              ]
+            },
+            {
+              "@type":"ISekFile",
+              "name": "StudijskiProgrami",
+              "tree": "C:\\Users\\vojin\\Desktop\\Veliki Set Podataka\\Veliki Set Podataka\\Indeks - sekvencijalne datoteke\\StudijskiProgrami.tree",
+              "overZone":"C:\\Users\\vojin\\Desktop\\Veliki Set Podataka\\Veliki Set Podataka\\Indeks - sekvencijalne datoteke\\StudijskiProgrami.over",
+              "path": "C:\\Users\\vojin\\Desktop\\Veliki Set Podataka\\Veliki Set Podataka\\Indeks - sekvencijalne datoteke\\StudijskiProgrami.stxt",
+              "attributes": [
+                {
+                  "@type":"Field",
+                  "name": "OZNAKA_PROGRAMA",
+                  "dataType":"TYPE_CHAR",
+                  "length":4,
+                  "isPK":true
+                },
+                {
+                  "@type":"Field",
+                  "name": "NAZIV_KOJI_SE_STICE",
+                  "dataType":"TYPE_VARCHAR",
+                  "length":80,
+                  "isPK":false
+                },
+                {
+                  "@type":"Field",
+                  "name": "NAZIV PROGRAMA",
+                  "dataType":"TYPE_VARCHAR",
+                  "length":80,
+                  "isPK":false
+                }
+              ]
+            },
+            {
+              "@type":"ISekFile",
+              "name": "TokStudija",
+              "path": "C:\\Users\\vojin\\Desktop\\Veliki Set Podataka\\Veliki Set Podataka\\Indeks - sekvencijalne datoteke\\TokStudija.stxt",
+              "tree": "C:\\Users\\vojin\\Desktop\\Veliki Set Podataka\\Veliki Set Podataka\\Indeks - sekvencijalne datoteke\\TokStudija.tree",
+              "overZone":"C:\\Users\\vojin\\Desktop\\Veliki Set Podataka\\Veliki Set Podataka\\Indeks - sekvencijalne datoteke\\TokStudija.over",
+              "attributes": [
+                {
+                  "@type":"Field",
+                  "name": "STRUKA",
+                  "dataType":"TYPE_CHAR",
+                  "length":1,
+                  "isPK":true
+                },
+                {
+                  "@type":"Field",
+                  "name": "BROJ INDEKSA",
+                  "dataType":"TYPE_VARCHAR",
+                  "length":6,
+                  "isPK":true
+                },
+                {
+                  "@type":"Field",
+                  "name": "OZNAKA_PROGRAMA",
+                  "dataType":"TYPE_CHAR",
+                  "length":4,
+                  "isPK":true
+                },
+                {
+                  "@type":"Field",
+                  "name": "SKOLSKA_GODINA",
+                  "dataType":"TYPE_CHAR",
+                  "length":4,
+                  "isPK":true
+                },
+                {
+                  "@type":"Field",
+                  "name": "GODINA_STUDIJA",
+                  "dataType":"TYPE_NUMERIC",
+                  "length":1,
+                  "isPK":false
+                },
+                {
+                  "@type":"Field",
+                  "name": "UPISUJE_PO_PLANU",
+                  "dataType":"TYPE_CHAR",
+                  "length":2,
+                  "isPK":false
+                }
+              ],
+              "relations":[
+                {
+                  "@type":"Relation",
+                  "name":"TokStudija (child) -> Studenti (parent)",
+                  "parent":"Studenti",
+                  "parentIDs":["STRUKA", "BROJ INDEKSA"],
+                  "child":"TokStudija",
+                  "childIDs":["STRUKA", "BROJ INDEKSA"]
+                },
+                {
+                  "@type":"Relation",
+                  "name":"TokStudija (child) -> StudijskiProgrami (parent)",
+                  "parent":"StudijskiProgrami",
+                  "parentIDs":["OZNAKA_PROGRAMA"],
+                  "child":"TokStudija",
+                  "childIDs":["OZNAKA_PROGRAMA"]
+                }
+              ]
+            }
+          ]
+    }
+  ]
+}

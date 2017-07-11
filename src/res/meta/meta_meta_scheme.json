@@ -1,0 +1,184 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "title": "Repository",
+    "description": "Skladiste podataka",
+    "properties": 
+    {
+      "@type":{"type":"string", "pattern": "^Repository$"},
+      "name":{"type":"string"},
+      "location":{"type":"string"},
+      "username":{"type":"string"},
+      "password":{"type":"string"},
+      "server":{"type":"string"},
+      "collection":
+      {
+        "type":"array",
+        "items":{"anyOf":[{"$ref": "#/definitions/package"},
+         {"$ref": "#/definitions/table"}, 
+         {"$ref": "#/definitions/iSekFile"}, 
+         {"$ref": "#/definitions/sekFile"}, 
+         {"$ref": "#/definitions/serFile"}]}
+      }
+    },
+    "required":["name","@type"],
+    "additionalProperties":false,
+    "definitions":
+    {
+      "table":
+      {
+        "type":"object",
+        "description":"JSON objekat koji reprezentuje tabelu u bazi podataka",
+        "properties":
+        {
+          "@type":{"type":"string", "pattern": "^Table$"},
+          "name":{"type":"string"},
+          "attributes":
+          {
+            "type":"array",
+            "items":{"$ref": "#/definitions/column"}
+          },
+          "relations":
+          {
+            "type":"array",
+            "items":{"$ref": "#/definitions/relation"}
+          }
+        },
+        "required":["name","@type"],
+        "additionalProperties":false
+      },
+      "iSekFile":
+      {
+        "type":"object",
+        "description":"JSON objekat koji opisuje indeks-sekvencijalnu datoteku",
+        "properties":
+        {
+          "@type":{"type":"string", "pattern": "^ISekFile$"},
+          "name":{"type":"string"},
+          "path":{"type":"string"},
+          "overZone":{"type":"string"},
+          "tree":{"type":"string"},
+          "attributes":
+          {
+            "type":"array",
+            "items":{"$ref": "#/definitions/field"}
+          },
+          "relations":
+          {
+            "type":"array",
+            "items":{"$ref": "#/definitions/relation"}
+          }
+        },
+        "required":["name","@type", "path", "overZone", "tree"],
+        "additionalProperties":false
+      },
+      "sekFile":
+      {
+        "type":"object",
+        "description":"JSON objekat koji opisuje sekvencijalnu datoteku",
+        "properties":
+        {
+          "@type":{"type":"string", "pattern": "^SekFile$"},
+          "name":{"type":"string"},
+          "path":{"type":"string"},
+          "attributes":
+          {
+            "type":"array",
+            "items":{"$ref": "#/definitions/field"}
+          },
+          "relations":
+          {
+            "type":"array",
+            "items":{"$ref": "#/definitions/relation"}
+          }
+        },
+        "required":["name","@type","path"],
+        "additionalProperties":false
+      },
+      "serFile":
+      {
+        "type":"object",
+        "description":"JSON objekat koji opisuje serijsku datoteku",
+        "properties":
+        {
+          "@type":{"type":"string", "pattern": "^SerFile$"},
+          "name":{"type":"string"},
+          "path":{"type":"string"},
+          "attributes":
+          {
+            "type":"array",
+            "items":{"$ref": "#/definitions/field"}
+          }
+        },
+        "required":["name","@type","path"],
+        "additionalProperties":false
+      },
+      "package":
+      {
+        "type":"object",
+        "description":"Ovo je paket koji sadrzi pakete i entitete",
+        "properties":
+        {
+          "@type":{"type":"string", "pattern": "^Package$"},
+          "name":{"type":"string"},
+          "collection":
+          {
+            "type":"array",
+        	"items":{"anyOf":[{"$ref": "#/definitions/package"},
+         	{"$ref": "#/definitions/table"}, 
+         	{"$ref": "#/definitions/iSekFile"}, 
+         	{"$ref": "#/definitions/sekFile"}, 
+         	{"$ref": "#/definitions/serFile"}]}
+          }
+        },
+        "required":["name","@type"],
+        "additionalProperties":false
+      },
+      "relation":
+      {
+      	"type":"object",
+      	"description":"JSON objekat koji reprezentuje RELATION klasu",
+      	"properties":
+      	{
+      		"@type":{"type":"string", "pattern": "^Relation$"},
+          "name":{"type":"string"},
+          "parent":{"type":"string"},
+          "parentIDs":{
+            "type":"array",
+            "items":{"type":"string"}
+          },
+          "child":{"type":"string"},
+          "childIDs":{
+          "type":"array",
+            "items":{"type":"string"}
+          }
+      	},
+      	"required":["name","@type","parent","parentIDs","child","childIDs"],
+        "additionalProperties":false
+      },
+      "attribute":
+      {
+        "type":"object",
+        "description":"JSON objekat koji reprezentuje Field klasu",
+        "properties":
+        {
+          "@type":{"type":"string", "pattern": "^Field$"},
+          "name":{"type":"string"},
+          "dataType":{"type":"string"},
+          "length":{"type":"integer", "minimum":1},
+          "isPK":{"type":"boolean"},
+          "isNotNULL":{"type":"boolean"}
+        },
+        "required":["name","@type","dataType","length","isPK"],
+        "additionalProperties":false
+      },
+      "field":
+      {
+        "allOf":[{"$ref": "#/definitions/attribute"}]
+      },
+      "column":
+      {
+        "allOf":[{"$ref": "#/definitions/attribute"}]
+      }
+    }
+}

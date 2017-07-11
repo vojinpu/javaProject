@@ -1,0 +1,205 @@
+{
+  "@type": "Repository",
+  "name": "Obrazovanje",
+  "collection": [
+    {
+      "@type": "Package",
+      "name": "Visoko obrazovanje",
+      "collection": [
+        {
+          "@type": "Package",
+          "name": "Univerziteti",
+          "collection": [
+            {
+              "@type": "Package",
+              "name": "Beogradski",
+              "collection": [
+                {
+                  "@type": "Table",
+                  "name": "Elektrotehnički fakultet"
+                },
+                {
+                  "@type": "Table",
+                  "name": "Mašinski fakultet"
+                },
+                {
+                  "@type": "Table",
+                  "name": "Ekonomski fakultet"
+                },
+                {
+                  "@type": "Table",
+                  "name": "Fakultet organizacionih nauka"
+                },
+                {
+                  "@type": "Table",
+                  "name": "Pravi fakultet"
+                }
+              ]
+            },
+            {
+              "@type": "Package",
+              "name": "UNION",
+              "collection": [
+                {
+                  "@type": "Table",
+                  "name": "Računarski fakultet"
+                },
+                {
+                  "@type": "Table",
+                  "name": "Bankarska akademija"
+                },
+                {
+                  "@type": "Table",
+                  "name": "Pravni fakultet"
+                },
+                {
+                  "@type": "Table",
+                  "name": "Likovna akademija"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "@type": "Package",
+          "name": "Više škole",
+          "collection": [
+            {
+              "@type": "Table",
+              "name": "Viša poslovna"
+            },
+            {
+              "@type": "Table",
+              "name": "Viša elektrotehnička"
+            },
+            {
+              "@type": "Table",
+              "name": "Viša medicinska"
+            }
+          ]
+        },
+        {
+          "@type": "Table",
+          "name": "Sve visokoobrazovne institucije",
+          "attributes": [
+            {
+              "@type": "Attribute",
+              "name": "Attribute1"
+            }
+          ],
+          "relations": []
+        }
+      ]
+    },
+    {
+      "@type": "Package",
+      "name": "Srednje obrazovanje",
+      "collection": [
+        {
+          "@type": "Package",
+          "name": "Gimnazije",
+          "collection": [
+            {
+              "@type": "Table",
+              "name": "Prva Beogradkska"
+            },
+            {
+              "@type": "Table",
+              "name": "Peta Beogradkska"
+            },
+            {
+              "@type": "Table",
+              "name": "Deseta Beogradkska"
+            },
+            {
+              "@type": "Table",
+              "name": "Četrnesta Beogradska"
+            }
+          ]
+        },
+        {
+          "@type": "Package",
+          "name": "Srednje škole",
+          "collection": [
+            {
+              "@type": "Table",
+              "name": "Pravno poslovna"
+            },
+            {
+              "@type": "Table",
+              "name": "Prva ekonomska"
+            },
+            {
+              "@type": "Table",
+              "name": "Druga ekonomska"
+            },
+            {
+              "@type": "Table",
+              "name": "Nikola Tesla"
+            }
+          ]
+        },
+        
+        {
+          "@type":"Table",
+        	"name":"Sve srednje obrazovne institucije"
+        	
+        }
+      ]
+    },{
+      "@type": "Package",
+      "name": "Osnovno obrazovanje",
+      "collection": [
+        {
+          "@type": "Package",
+          "name": "Osnovne škole",
+          "collection": [
+            {
+              "@type": "Table",
+              "name": "Ćirilo i Metodije"
+            },
+            {
+              "@type": "Table",
+              "name": "Desanka Maksimović"
+            },
+            {
+              "@type": "Table",
+              "name": "Stevan Sinđelić"
+            },
+            {
+              "@type": "Table",
+              "name": "Vuk Karadžić"
+            }
+          ]
+        },
+        
+        {
+          "@type":"Table",
+        	"name":"Sve osnovno obrazovne institucije"
+        	
+        }
+      ]
+    },
+    {
+      "@type": "Table",
+      "name": "Nomenklatura",
+      "attributes": [
+        {
+          "@type": "Attribute",
+          "name": "Id"
+        },
+		{
+          "@type": "Attribute",
+          "name": "CODE"
+        },{
+          "@type": "Attribute",
+          "name": "Naziv"
+        },{
+          "@type": "Attribute",
+          "name": "Zeka car"
+        }
+      ],
+      "relations": []
+    }
+  ]
+}
